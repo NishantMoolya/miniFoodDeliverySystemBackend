@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Graph Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        #mynetwork {
+            width: 800px;
+            height: 600px;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+
+<div id="mynetwork"></div>
+
+<script>
+    // Your city graph data
+    const cityGraph = {
+        'A': [
+            {node: 'B', weight: 4},
+            {node: 'C', weight: 6},
+            {node: 'D', weight: 5},
+        ],
+        'B': [
+            {node: 'A', weight: 4},
+            {node: 'C', weight: 6},
+            {node: 'I', weight: 10},
+        ],
+        'C': [
+            {node: 'B', weight: 6},
+            {node: 'A', weight: 6},
+            {node: 'D', weight: 4},
+            {node: 'J', weight: 9},
+        ],
+        'D': [
+            {node: 'A', weight: 5},
+            {node: 'C', weight: 4},
+            {node: 'E', weight: 8},
+            {node: 'F', weight: 9},
+        ],
+        'E': [
+            {node: 'D', weight: 8},
+            {node: 'J', weight: 2},
+            {node: 'H', weight: 3},
+        ],
+        'F': [
+            {node: 'D', weight: 9},
+            {node: 'G', weight: 3},
+        ],
+        'G': [
+            {node: 'F', weight: 3},
+            {node: 'H', weight: 6},
+        ],
+        'H': [
+            {node: 'E', weight: 3},
+            {node: 'G', weight: 6},
+            {node: 'L', weight: 7},
+        ],
+        'I': [
+            {node: 'B', weight: 10},
+            {node: 'J', weight: 2},
+            {node: 'K', weight: 7},
+        ],
+        'J': [
+            {node: 'I', weight: 2},
+            {node: 'C', weight: 9},
+            {node: 'E', weight: 2},
+            {node: 'L', weight: 6},
+        ],
+        'K': [
+            {node: 'I', weight: 7},
+            {node: 'L', weight: 6},
+        ],
+        'L': [
+            {node: 'K', weight: 6},
+            {node: 'J', weight: 6},
+            {node: 'H', weight: 7},
+        ],
+    };
+
+    // Prepare data for vis.js
+    const nodes = new vis.DataSet();
+    const edges = new vis.DataSet();
+
+    // Add nodes
+    for (const key in cityGraph) {
+        nodes.add({id:key, label:key});
+        
+        // Add edges
+        cityGraph[key].forEach(edge => {
+            edges.add({from:key, to:edge.node, label:`${edge.weight}`});
+        });
+    }
+
+    // Create a network
+    const container = document.getElementById('mynetwork');
+    const data = {
+        nodes,
+        edges
+    };
+    
+    const options = {
+        edges:{
+          arrows:'to'
+        }
+    };
+
+    const network = new vis.Network(container, data, options);
+</script>
+
+</body>
+</html>

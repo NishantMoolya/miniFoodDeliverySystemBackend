@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Margherita Pizza",
+        "price": 250,
+        "prepare_time": 3
+    },
+    {
+        "id": 2,
+        "name": "Pasta Alfredo",
+        "price": 300,
+        "prepare_time": 5
+    },
+    {
+        "id": 3,
+        "name": "Chicken Biryani",
+        "price": 400,
+        "prepare_time": 10
+    },
+    {
+        "id": 4,
+        "name": "Paneer Tikka",
+        "price": 200,
+        "prepare_time": 2
+    },
+    {
+        "id": 5,
+        "name": "Caesar Salad",
+        "price": 150,
+        "prepare_time": 1
+    },
+    {
+        "id": 6,
+        "name": "Fish Curry",
+        "price": 350,
+        "prepare_time": 5
+    },
+    {
+        "id": 7,
+        "name": "Chocolate Lava Cake",
+        "price": 180,
+        "prepare_time": 10
+    },
+    {
+        "id": 8,
+        "name": "Vegetable Spring Rolls",
+        "price": 120,
+        "prepare_time": 6
+    },
+    {
+        "id": 9,
+        "name": "Tandoori Chicken",
+        "price": 450,
+        "prepare_time": 10
+    },
+    {
+        "id": 10,
+        "name": "Mango Lassi",
+        "price": 80,
+        "prepare_time": 2
+    }
+]
